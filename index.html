@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Introduce Myself...</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="user-scalable=no,maximum-scale=1,initial-scale=1">
+        <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+        <script>
+            $(document).ready(function() {
+                $('a.ham_bar').click(function () {
+                    $('.list_set').next().addBack().toggleClass("display");
+                });
+            });
+            
+            $(function() {
+			    $('ol.list_set li').click(function() {
+				    var activeTab = $(this).attr('data-tab');
+				    $('ol.list_set li').removeClass('on');
+				    $('.tab').removeClass('on');
+				    $(this).addClass('on');
+				    $('#' + activeTab).addClass('on');
+			    })
+		    });
+        </script>
+        <style>
+            *{font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial;
+                background-color: ivory;
+            }
+            hr {
+                background: tomato;
+                height: 0.5px;
+                border: 0;
+            }
+            /* 제목 관련 css */
+            #title{text-align: center; color: crimson;
+                margin: 0; padding: 0; border: 0;
+                 font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+            }
+            /* 메뉴바 관련 css */
+            nav a:link{padding: 0; margin: 0 auto; text-align: center;
+                color: black; display: block; width: 50px;}
+            nav a:visited{color: black;}
+            nav a:hover{color: crimson;}
+            nav a:active{color: cornflowerblue;}
+            
+            .ham_bar {display: none; float: right; padding-right: 20px; color: crimson;
+                font-weight: 900;
+            }
+            .ham_bar:link{color: crimson;}
+            .ham_bar:visited{color: crimson;}
+            .ham_bar:active{color: black;}
+
+            .list_set {float: right; margin-right: 40px;}
+            .list_set li{list-style-type: none; float: left; margin-left: 10px;}
+            /* 메뉴바 미디어쿼리 */
+            @media screen and (max-width: 780px) {
+                .list_set { display: none; position: absolute; }
+                .list_set a { display: block;}
+                .ham_bar { display: none; }
+                .list_set.display {display: block;}
+                
+            }
+            /* 콘텐츠 관련 css(모든 내용 공통으로 적용됨) */
+            #content_box{border: solid crimson 1px;
+                padding: 20px; margin: 10px;
+            }
+            #content_box > #home_content{font-size: 17pt;}
+            .tab{display: none;}
+            .tab.on {display: block;}
+            /* home 관련 css */
+            #img_box{margin: 10px;}
+            #image{width: 200px; height: 200px; float: left;}
+            /* intro 관련 css */
+            #intro_of_intro{font-size:small;}
+            /* blending 관련 css */
+            #blending_img{width: 200px; height: 200px; display: block; margin-left: auto; margin-right: auto;}
+            /* footer 관련 css */
+            footer{margin: 0; padding: 0; float: right; text-align: right;
+                color: grey;
+            }
+        </style>
+    </head>
+    <body>
+        <header>
+            <h1 id="title">Minji Kang</h1>
+            <nav id="menu">
+                <ol class="list_set">
+                    <li class="list on" data-tab="home" value="home"><a href="#" style="text-decoration-line: none;">HOME</a></li>
+                    <li class="list" data-tab="intro" value="intro"><a href="#" style="text-decoration-line: none;">INTRO</a></li>
+                    <li class="list" data-tab="life" value="life"><a href="#" style="text-decoration-line: none;">LIFE</a></li>
+                    <li class="list" data-tab="blending" value="blending"><a href="#" style="text-decoration-line: none;">BLENDING</a></li>
+                </ol>
+                <a class="ham_bar" id="ham_icon" href="#"><u><b>〓</b></u></a>
+                <br>
+            </nav>
+        </header>
+        <br><br>
+        <hr><hr>
+        <div id="content_box">
+            <article id="home" class="tab on">
+                <span id="img_box" class="box">
+                    <img src="image/me.jpg" id="image" alt="이미지 없음" style="margin-right: 50px;">
+                </span>
+                <span class="box" id="home_box">
+                    <h2>Home</h2>
+                    <p id="home_content">
+                        &nbsp;&nbsp;&nbsp;해당 페이지는 강원대학교 컴퓨터공학과 "강민지"를 소개하기 위한 홈페이지입니다.
+                    </p>
+                </span>
+                <div style="height: 100px;"></div>
+            </article>
+            <article id="intro" class="tab">
+                <h2>Simple Introduction</h2>
+                <p id="intro_of_intro">&nbsp;&nbsp;&nbsp;&nbsp;- 아래 내용은 "강민지"에 대해 간단한 자기소개입니다.</p>
+                <ul>
+                    <li><b>출생연도/월/일:</b> 2003년 4월 18일</li>
+                    <li><b>출생지:</b> 대한민국 강원도 속초시</li>
+                    <li><b>학적:</b> 청봉초등학교 졸업, 설악여자중학교 졸업, 속초여자고등학교 졸업</li>
+                    <li><b>현재 다니는 학교 및 학과:</b>강원대학교 춘천캠퍼스 컴퓨터공학과(+@)
+                        <br>&nbsp;&nbsp;-> 정밀의료융합전공을 복수전공하기 위해 신청한 상태지만 선발될지는 알 수 없어 @라고 표시했습니다.
+                    </li>
+                    <li>기타
+                        <ol>
+                            <li>컴퓨터공학과는 친오빠의 영향을 받아 오게 되었습니다.</li>
+                            <li>현재 제 instargram 아이디는 "manzi_0418"입니다. <del>(팔로우 많이 눌러주세요~)</del></li>
+                        </ol>
+                    </li>
+                </ul>
+            </article>
+            <article id="life" class="tab">
+                <h2>My Interesting Life</h2>
+                <ul>
+                    <li style="list-style-type: square;"><u>별명 관련 이야기</u>
+                        <ul>
+                            <li><b>해리</b>: '뽀롱뽀롱뽀로로'에 나오는 캐릭터인 "해리"를 닮아 붙여진 별명으로, 흥분하거나 신날 때
+                                말이 매우 빨라지고 많아져서 귀에서 피가 날 정도로 조잘조잘거린다고 하여 해리라는 별명이 생겼습니다.</li>
+                            <li><b>만지</b>: 2022년도 2학기 때 <a href="#blending" style="text-decoration-line: none;">BLENDING</a>이라는
+                                과동아리에서 진행했던 친목 프로그램에서 당시 같은 팀이었던 선배분들께서 제 이름인 "민지"에서 한 획을 그어
+                                "만지"라고 부르기 시작하였습니다. 이후 instargram에서의 아이디도 <a href="" style="text-decoration-line: none;">"manzi_0418"</a>로 바꿀 정도로
+                                가장 정감이 가는 별명입니다.
+                            </li>
+                            <li><b>먼지</b>: "만지"라는 별명의 기출 변형 버전입니다. 
+                                <br><del>(제가 하찮다는 의미가 절대 아닙니다!!!)</del>
+                            </li>
+                        </ul>
+                    </li>
+                    <br>
+                    <li style="list-style-type:square"><u>취미 관련 이야기</u>
+                        <ul>
+                            <li><b>게임</b>: 친오빠의 영향을 받아 초등학교 1학년 때부터 게임을 하기 시작했으며, 
+                                초등학교 6학년 때부터 '좀비고등학교'라는 모바일 게임을 고등학교 3학년 초까지 맨날 할 정도로
+                                게임에 진심이었습니다. 이 게임(좀비고등학교)은 컴퓨터공학과라는 제 고등학교 시절 대학교 목표를 만들어준 고마운 게임입니다.<br> '메이플스토리'라는 PC게임도 했었지만, 현재 하고 싶은 마음이 없어 복귀는 하지 않을 생각입니다. 
+                                현재는 '쿠키런 : 오븐브레이크'라는 모바일 게임만 간간이 즐기고 있습니다.
+                            </li>
+                            <li><b>노래</b>: 중학교 3학년 때 속초에 코인노래방이 생기기 시작해 친구들과 코인노래방(이하 코노)를 즐겨
+                                다니다가 자연스레 노래 부르는 것에 흥미가 붙어, 거의 매일을 코노에서 스트레스를 풀었습니다. 강원대학교에 입학하여 
+                                후문 부근에 있는 코인노래방이 1000원에 5곡이라는 얘기를 듣고 나서 매일매일 해당 코노에 가서 노래를 불러 
+                                목감기에 걸리기도 하였습니다. 
+                                <br>(현재는 목상태가 많이 안 좋아 가끔씩 찾고 있습니다.)
+                            </li>
+                            <li><b>스티커로 엽서 꾸미기</b>: 2023년 1학기 때 같은 과동아리 임원진의 권유로 스티커로 엽서 꾸미기를 시작하였는데,
+                                그 뒤로 흥미가 붙어 편지지, 엽서, 다이어리 등을 꾸미고 있습니다.
+                            </li>
+                        </ul>
+                    </li>
+                    <br>
+                    <li style="list-style-type:square"><u>운동 관련 이야기</u>
+                        <ul>
+                            <li style="list-style-type: none;">다이어트를 위해 운동을 해야겠다고 매일 다짐 중이지만 허울뿐인 다짐입니다.
+                                <br><del>(안타깝게도, 사실입니다.)</del>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </article>
+            <article id="blending" class="tab">
+                <h2>BLENDING</h2>
+                <ol>
+                    <li><b>2022년</b>
+                        <ul>
+                            <li>2022년 3월에 <b>신입 부원</b>으로 가입하여 1년동안 일반 부원으로 활동하였습니다.</li>
+                        </ul>
+                    </li>
+                    <li><b>2023년</b>
+                        <ul>
+                            <li>2023년 1학기에 <b>오락부장(임원진)</b>으로 발탁되어 현재까지 임원진으로 활동하고 있습니다.</li>
+                        </ul>
+                    </li>
+                </ol>
+                <img id="blending_img" src="./image/blending.png" alt="이미지 없음">
+            </article>
+        </div>
+        <br>
+        <hr><br>
+        <footer>last updated : 2023.06.01<br>made by "202210447 Minji Kang"</footer>
+        <br>
+        <div id="footer_empty" style="height: 50px; float: right;"></div>
+    </body>
+</html>
