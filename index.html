@@ -7,7 +7,7 @@
         <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
         <script>
             $(document).ready(function() {
-                $('a.ham_bar').click(function () {
+                $('a.ham_icon').click(function () {
                     $('.list_set').next().addBack().toggleClass("display");
                 });
             });
@@ -23,8 +23,10 @@
 		    });
         </script>
         <style>
+            body {
+                margin: 0;
+            }
             *{font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial;
-                background-color: ivory;
             }
             hr {
                 background: tomato;
@@ -33,7 +35,7 @@
             }
             /* 제목 관련 css */
             #title{text-align: center; color: crimson;
-                margin: 0; padding: 0; border: 0;
+                margin: 0; padding: 0; border: 0; margin-top: 30px;
                  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
             }
             /* 메뉴바 관련 css */
@@ -43,23 +45,15 @@
             nav a:hover{color: crimson;}
             nav a:active{color: cornflowerblue;}
             
-            .ham_bar {display: none; float: right; padding-right: 20px; color: crimson;
+            #ham_icon {display: none; float: right; padding-right: 20px; color: crimson;
                 font-weight: 900;
             }
-            .ham_bar:link{color: crimson;}
-            .ham_bar:visited{color: crimson;}
-            .ham_bar:active{color: black;}
+            #ham_icon:link{color: crimson;}
+            #ham_icon:visited{color: crimson;}
+            #ham_icon:active{color: black;}
 
-            .list_set {float: right; margin-right: 40px;}
-            .list_set li{list-style-type: none; float: left; margin-left: 10px;}
-            /* 메뉴바 미디어쿼리 */
-            @media screen and (max-width: 780px) {
-                .list_set { display: none; position: absolute; }
-                .list_set a { display: block;}
-                .ham_bar { display: none; }
-                .list_set.display {display: block;}
-                
-            }
+            .list_set {float: right;}
+            .list_set li{list-style-type: none; float: left; width: 90px;}
             /* 콘텐츠 관련 css(모든 내용 공통으로 적용됨) */
             #content_box{border: solid crimson 1px;
                 padding: 20px; margin: 10px;
@@ -68,15 +62,95 @@
             .tab{display: none;}
             .tab.on {display: block;}
             /* home 관련 css */
+            #home_box a:link{color: crimson;}
+            #home_box a:visited{color: crimson;}
+            #home_box a:hover{color: cornflowerblue;}
+            #home_box a:active{color: crimson;}
             #img_box{margin: 10px;}
             #image{width: 200px; height: 200px; float: left;}
             /* intro 관련 css */
             #intro_of_intro{font-size:small;}
+            #intro_content a:link{color: crimson;}
+            #intro_content a:visited{color: crimson;}
+            #intro_content a:hover{color: cornflowerblue;}
+            #intro_content a:active{color: crimson;}
+            /* life 관련 css */
+            .life_content a:link{color: crimson;}
+            .life_content a:visited{color: crimson;}
+            .life_content a:hover{color: cornflowerblue;}
+            .life_content a:active{color: crimson;}
             /* blending 관련 css */
+            .blending_content li b{color: crimson;}
+            #blending a:link{color: black;}
+            #blending a:visited{color: black;}
+            #blending a:hover{color: crimson;}
+            #blending a:active{color: cornflowerblue;}
             #blending_img{width: 200px; height: 200px; display: block; margin-left: auto; margin-right: auto;}
             /* footer 관련 css */
-            footer{margin: 0; padding: 0; float: right; text-align: right;
+            footer{margin: 0; padding: 0; float: right; text-align: right; margin-right: 15px;
                 color: grey;
+            }
+            /* 태블릿 세로 화면 미디어쿼리 */
+            @media screen and (max-width: 850px) {
+                /* title head 관련 미디어쿼리는 필요 없음 */
+                /* nav 관련 미디어쿼리 */
+                .list {text-align: center; padding-right: 40px;}
+                .list_set { display: none; }
+                .list_set li {font-size: large; margin-left: auto; margin-right: auto; float : none; padding-left: 40px;}
+                #ham_icon { display: block;}
+                ol.list_set.display {display: block; z-index: 1000; background-color: rgba(220, 20, 60, 0.6); width: 100%}
+                nav a:link {color: white;}
+                nav a:visited {color: white;}
+                nav a:hover {color: white;}
+                nav a:active {color: cornflowerblue;}
+                /* home 관련 미디어쿼리 */
+                #home_content {font-size: 14px;}
+                /* intro content 내용 관련 미디어쿼리 */
+                #intro_content li ol li {font-size: 14px;}
+                /* life content 내용 관련 미디어쿼리 */
+                .life_content ul li {font-size: 13px;}
+                /* blending content 내용 관련 미디어쿼리 */
+                .blending_content li {font-size: 13px;}
+                /* footer 관련 미디어쿼리 */
+                footer {font-size: small;}
+            }
+            /* 스마트폰 화면 미디어쿼리 */
+            @media screen and (max-width: 490px) {
+                /* title head 관련 미디어쿼리 */
+                #title {font-size: 22px;}
+                /* nav 관련 미디어쿼리 */
+                .list {text-align: center; padding-right: 40px;}
+                .list_set { display: none; }
+                .list_set li{ margin-left: auto; margin-right: auto; float : none; padding-left: 40px; font-size: medium;}
+                #ham_icon { display: block;}
+                ol.list_set.display {display: block; z-index: 1000; background-color: rgba(220, 20, 60, 0.6); width: 100%; z-index: 1000;}
+                nav a:link{color: white;}
+                nav a:visited{color: white;}
+                nav a:hover{color: white;}
+                nav a:active{color: cornflowerblue;}
+                /* content_box 제목 관련 미디어쿼리 */
+                h2 {font-size: 18px; width: 120%; float: left;}
+                /* home content 내용 관련 미디어쿼리 */
+                #home.tab.on {height: 220px;}
+                #home_title{position: absolute; top: 260px; z-index: 90;}
+                #home_content {font-size: 12px; display: block;
+                    position: absolute; top: 300px; padding-right: 15px;
+                }
+                /* home 이미지 관련 미디어쿼리 */
+                #img_box {height: 100px; margin: 0; position: absolute; z-index: 100;}
+                #image {width: 100px; height: 100px; display: block; margin: 0; padding-top: 30px;}
+                /* intro content 관련 미디어쿼리 */
+                #intro_of_intro {font-size: x-small;}
+                #intro_content {font-size: 12px;}
+                #intro_content li ol li {font-size: 11px;}
+                /* life content 관련 미디어쿼리 */
+                .life_content ul li {font-size: 11px;}
+                .life_content {font-size: 12px;}
+                /* club content 관련 미디어쿼리 */
+                .blending_content {font-size: 12px;}
+                .blending_content li {font-size: 11px;}
+                /* footer 관련 미디어쿼리 */
+                footer {font-size: small;}
             }
         </style>
     </head>
@@ -84,45 +158,44 @@
         <header>
             <h1 id="title">Minji Kang</h1>
             <nav id="menu">
+                <a class="ham_icon" id="ham_icon" href="#" style="text-decoration-line: none;"><b>〓</b><br></a>
                 <ol class="list_set">
                     <li class="list on" data-tab="home" value="home"><a href="#" style="text-decoration-line: none;">HOME</a></li>
                     <li class="list" data-tab="intro" value="intro"><a href="#" style="text-decoration-line: none;">INTRO</a></li>
                     <li class="list" data-tab="life" value="life"><a href="#" style="text-decoration-line: none;">LIFE</a></li>
-                    <li class="list" data-tab="blending" value="blending"><a href="#" style="text-decoration-line: none;">BLENDING</a></li>
+                    <li class="list" data-tab="blending" value="blending"><a href="#" style="text-decoration-line: none;">CLUB</a></li>
                 </ol>
-                <a class="ham_bar" id="ham_icon" href="#"><u><b>〓</b></u></a>
                 <br>
             </nav>
         </header>
         <br><br>
-        <hr><hr>
         <div id="content_box">
             <article id="home" class="tab on">
-                <span id="img_box" class="box">
+                <div id="img_box" class="box">
                     <img src="image/me.jpg" id="image" alt="이미지 없음" style="margin-right: 50px;">
-                </span>
-                <span class="box" id="home_box">
-                    <h2>Home</h2>
+                </div>
+                <div class="box" id="home_box">
+                    <h2 id="home_title">Home</h2>
                     <p id="home_content">
-                        &nbsp;&nbsp;&nbsp;해당 페이지는 강원대학교 컴퓨터공학과 "강민지"를 소개하기 위한 홈페이지입니다.
+                        &nbsp;&nbsp;&nbsp;해당 페이지는 <a href="https://wwwk.kangwon.ac.kr/www/index.do" style="text-decoration-line: none;"><b>강원대학교</b></a> 컴퓨터공학과 "강민지"를 소개하기 위한 홈페이지입니다.
                     </p>
-                </span>
+                </div>
                 <div style="height: 100px;"></div>
             </article>
             <article id="intro" class="tab">
                 <h2>Simple Introduction</h2>
                 <p id="intro_of_intro">&nbsp;&nbsp;&nbsp;&nbsp;- 아래 내용은 "강민지"에 대해 간단한 자기소개입니다.</p>
-                <ul>
+                <ul id="intro_content">
                     <li><b>출생연도/월/일:</b> 2003년 4월 18일</li>
                     <li><b>출생지:</b> 대한민국 강원도 속초시</li>
                     <li><b>학적:</b> 청봉초등학교 졸업, 설악여자중학교 졸업, 속초여자고등학교 졸업</li>
-                    <li><b>현재 다니는 학교 및 학과:</b>강원대학교 춘천캠퍼스 컴퓨터공학과(+@)
-                        <br>&nbsp;&nbsp;-> 정밀의료융합전공을 복수전공하기 위해 신청한 상태지만 선발될지는 알 수 없어 @라고 표시했습니다.
+                    <li><b>현재 다니는 학교 및 학과:</b> 강원대학교 춘천캠퍼스 <a href="https://cse.kangwon.ac.kr/cse/index.do" style="text-decoration-line: none;"><b>컴퓨터공학과</b></a> 2학년(22학번)
+                        <br>&nbsp;&nbsp;(정밀의료융합전공을 복수전공하기 위해 신청한 상태지만 선발될지는 알 수 없어 추가로 적지 않았습니다.)
                     </li>
-                    <li>기타
+                    <li><b>기타</b>
                         <ol>
                             <li>컴퓨터공학과는 친오빠의 영향을 받아 오게 되었습니다.</li>
-                            <li>현재 제 instargram 아이디는 "manzi_0418"입니다. <del>(팔로우 많이 눌러주세요~)</del></li>
+                            <li>현재 제 instargram 아이디는 <a href="https://www.instagram.com/manzi._.0418/" style="text-decoration-line: none;">"manzi._.0418"</a>입니다. <del>(팔로우 많이 눌러주세요~)</del></li>
                         </ol>
                     </li>
                 </ul>
@@ -130,7 +203,7 @@
             <article id="life" class="tab">
                 <h2>My Interesting Life</h2>
                 <ul>
-                    <li style="list-style-type: square;"><u>별명 관련 이야기</u>
+                    <li style="list-style-type: square;" class="life_content"><u>별명 관련 이야기</u>
                         <ul>
                             <li><b>해리</b>: '뽀롱뽀롱뽀로로'에 나오는 캐릭터인 "해리"를 닮아 붙여진 별명으로, 흥분하거나 신날 때
                                 말이 매우 빨라지고 많아져서 귀에서 피가 날 정도로 조잘조잘거린다고 하여 해리라는 별명이 생겼습니다.</li>
@@ -142,10 +215,13 @@
                             <li><b>먼지</b>: "만지"라는 별명의 기출 변형 버전입니다. 
                                 <br><del>(제가 하찮다는 의미가 절대 아닙니다!!!)</del>
                             </li>
+                            <li><b>MZ</b>: "MZ세대"라는 단어에서 파생된 별명입니다.
+                                <br>주로 볼링을 즐길 때 볼링핀을 1개만 넘어뜨렸을 때 "MZ했다."라는 말을 많이 듣습니다.
+                            </li>
                         </ul>
                     </li>
                     <br>
-                    <li style="list-style-type:square"><u>취미 관련 이야기</u>
+                    <li style="list-style-type:square" class="life_content"><u>취미 관련 이야기</u>
                         <ul>
                             <li><b>게임</b>: 친오빠의 영향을 받아 초등학교 1학년 때부터 게임을 하기 시작했으며, 
                                 초등학교 6학년 때부터 '좀비고등학교'라는 모바일 게임을 고등학교 3학년 초까지 맨날 할 정도로
@@ -164,7 +240,7 @@
                         </ul>
                     </li>
                     <br>
-                    <li style="list-style-type:square"><u>운동 관련 이야기</u>
+                    <li style="list-style-type:square" class="life_content"><u>운동 관련 이야기</u>
                         <ul>
                             <li style="list-style-type: none;">다이어트를 위해 운동을 해야겠다고 매일 다짐 중이지만 허울뿐인 다짐입니다.
                                 <br><del>(안타깝게도, 사실입니다.)</del>
@@ -174,16 +250,22 @@
                 </ul>
             </article>
             <article id="blending" class="tab">
-                <h2>BLENDING</h2>
+                <h2><a href="https://cafe.naver.com/knublending" style="text-decoration-line: none;">BLENDING</a></h2>
                 <ol>
-                    <li><b>2022년</b>
+                    <li class="blending_content"><b>2022년</b>
                         <ul>
                             <li>2022년 3월에 <b>신입 부원</b>으로 가입하여 1년동안 일반 부원으로 활동하였습니다.</li>
+                            <li>2022년 1년동안 동아리의 거의 모든 활동에 참여하여, 동아리에서 알게 된 선배들이 많았습니다.</li>
+                            <li>2022년도 BLENDING에서 MT를 2번 가게 되었는데, 여러 레크레이션 게임과 주루마블이 매우매우 재미있었습니다.</li>
+                            <li>2022년 11월 말, "모여봐요 블렌딩"이라는 친목 활동에서 같은 조였던 선배들과 같이 롯데월드에서 재밌게 놀았습니다.</li>
+                            <li>2022년 1학기에서의 "짝선짝후"라는 친목 활동과 2학기에서의 "모여봐요 블렌딩"이라는 친목 활동에서 각각 2등과 1등을 수상하여 상금을 탔습니다.</li>
                         </ul>
                     </li>
-                    <li><b>2023년</b>
+                    <li class="blending_content"><b>2023년</b>
                         <ul>
                             <li>2023년 1학기에 <b>오락부장(임원진)</b>으로 발탁되어 현재까지 임원진으로 활동하고 있습니다.</li>
+                            <li>2023년 개강총회 때 약 120명(임원진 포함)이 참가하여 학과에서 주최한 개강총회와 인원 수가 비슷하여 사람들이 과개강총회에 버금가는 규모라고 하였습니다.</li>
+                            <li>2023년 1학기 MT 때 약 70명의 인원이 참가하여 참가한 모든 인원이 레크레이션 게임과 주루마블이 매우 재미있었다고 하여, 열심히 준비한 보람이 있다고 느꼈습니다.</li>
                         </ul>
                     </li>
                 </ol>
